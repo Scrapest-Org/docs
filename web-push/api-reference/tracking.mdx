@@ -5,6 +5,11 @@ description: "Manage tracked Twitter users for push notifications"
 
 You can track specific Twitter users to receive push notifications whenever they tweet.
 
+<Note>
+  This endpoint requires authentication. You must provide the `x-api-token`
+  header.
+</Note>
+
 ## Track User
 
 Start tracking a user. This will automatically follow the user on Twitter and enable push notifications for their account.
@@ -23,8 +28,9 @@ Start tracking a user. This will automatically follow the user on Twitter and en
 
 <RequestExample>
   ```bash Example Request
-  curl -X POST http://localhost:6969/track-user \
+  curl -X POST https://webpush-production.up.railway.app/track-user \
     -H "Content-Type: application/json" \
+    -H "x-api-token: YOUR_SECRET_TOKEN" \
     -d '{ "username": "elonmusk" }'
   ```
 </RequestExample>
@@ -53,8 +59,9 @@ Stop tracking a user. This will unfollow the user and disable notifications.
 
 <RequestExample>
   ```bash Example Request
-  curl -X DELETE http://localhost:6969/track-user \
+  curl -X DELETE https://webpush-production.up.railway.app/track-user \
     -H "Content-Type: application/json" \
+    -H "x-api-token: YOUR_SECRET_TOKEN" \
     -d '{ "username": "elonmusk" }'
   ```
 </RequestExample>
@@ -72,7 +79,9 @@ Stop tracking a user. This will unfollow the user and disable notifications.
 _Note: This endpoint implementation is currently pending._
 
 <RequestExample>
-  ```bash Example Request curl -X GET http://localhost:6969/tracked-users ```
+  ```bash Example Request curl -X GET
+  https://webpush-production.up.railway.app/tracked-users \ -H "x-api-token:
+  YOUR_SECRET_TOKEN" ```
 </RequestExample>
 
 <ResponseExample>

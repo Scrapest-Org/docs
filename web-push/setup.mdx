@@ -7,7 +7,8 @@ description: "Get the Web Push Service up and running"
 
 Before you begin, ensure you have the following installed:
 
-- **[Bun](https://bun.sh/)**: The JavaScript runtime used by the service.
+- **[Bun](https://bun.sh/)**: For development and building.
+- **[Node.js](https://nodejs.org/)**: Recommended for production deployment.
 - **Redis**: Required for storing webhook URLs.
 
 ## Installation
@@ -23,11 +24,13 @@ bun install
 
 ### Environment Variables
 
-Create a `.env` file in the `apps/web_push` directory (or use the root `.env` if configured) with the following variable:
+Create a `.env` file in the `apps/web_push` directory (or use the root `.env` if configured) with the following variables:
 
 ```env
 REDIS_URL="redis://localhost:6379"
 PORT=6969
+# Secret key for API authentication
+WEBPUSH_KEY="your-secret-api-token"
 ```
 
 ### Twitter Configuration
@@ -56,18 +59,27 @@ copy `config_example.json` to `config.json` and update it with your Twitter cred
 
 ### Development
 
-To run with hot-reloading enabled:
+To run with hot-reloading enabled using Bun:
 
 ```bash
 bun run dev
 ```
 
-### Production
+### Production (Node.js)
 
-To run in production mode:
+For production environments, it is recommended to compile the code and run it with Node.js.
 
-```bash
-bun run start
-```
+1.  **Build the project**:
+
+    ```bash
+    bun run build
+    ```
+
+    This will generate a `dist` folder containing the compiled Node.js compatible code.
+
+2.  **Run with Node.js**:
+    ```bash
+    node dist/index.js
+    ```
 
 The server will start on port `6969` (or your configured `PORT`).

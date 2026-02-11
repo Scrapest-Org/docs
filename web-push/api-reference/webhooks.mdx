@@ -5,6 +5,11 @@ description: "Manage verification webhooks for receiving notifications"
 
 The Web Push Service forwards received tweet notifications to registered webhooks.
 
+<Note>
+  This endpoint requires authentication. You must provide the `x-api-token`
+  header.
+</Note>
+
 ## Register Webhook
 
 <ParamField body="url" type="string" required>
@@ -13,8 +18,9 @@ The Web Push Service forwards received tweet notifications to registered webhook
 
 <RequestExample>
   ```bash Example Request
-  curl -X POST http://localhost:6969/webhook \
+  curl -X POST https://webpush-production.up.railway.app/webhook \
     -H "Content-Type: application/json" \
+    -H "x-api-token: YOUR_SECRET_TOKEN" \
     -d '{ "url": "https://your-webhook.com/endpoint" }'
   ```
 </RequestExample>
@@ -36,7 +42,8 @@ Retrieve all currently registered webhooks.
 </ResponseField>
 
 <RequestExample>
-  ```bash Example Request curl -X GET http://localhost:6969/webhooks ```
+  ```bash Example Request curl -X GET
+  https://webpush-production.up.railway.app/webhooks ```
 </RequestExample>
 
 <ResponseExample>
@@ -59,8 +66,9 @@ Remove a webhook from the registry.
 
 <RequestExample>
   ```bash Example Request
-  curl -X DELETE http://localhost:6969/webhook \
+  curl -X DELETE https://webpush-production.up.railway.app/webhook \
     -H "Content-Type: application/json" \
+    -H "x-api-token: YOUR_SECRET_TOKEN" \
     -d '{ "url": "https://your-webhook.com/endpoint" }'
   ```
 </RequestExample>

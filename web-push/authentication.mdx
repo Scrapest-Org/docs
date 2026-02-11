@@ -1,0 +1,34 @@
+---
+title: "Authentication"
+description: "Authenticating requests to the Web Push Service"
+---
+
+Most endpoints in the Web Push Service are protected and require authentication.
+
+## API Token
+
+To authenticate your requests, you must include the `x-api-token` header with your configured secret key.
+
+<ParamField header="x-api-token" type="string" required>
+  The secret API key configured in your `WEBPUSH_KEY` environment variable.
+</ParamField>
+
+## Live Demo
+
+You can interact with our live Web Push instance at:
+
+`https://webpush-production.up.railway.app/`
+
+<Note>
+  Authentication is required for all state-changing operations and sensitive
+  data access on the live instance.
+</Note>
+
+### Example Request
+
+```bash
+curl -X POST https://webpush-production.up.railway.app/track-user \
+  -H "Content-Type: application/json" \
+  -H "x-api-token: YOUR_SECRET_TOKEN" \
+  -d '{ "username": "elonmusk" }'
+```
