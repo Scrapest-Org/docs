@@ -1,0 +1,84 @@
+---
+title: "User Tracking"
+description: "Manage tracked Twitter users for push notifications"
+---
+
+You can track specific Twitter users to receive push notifications whenever they tweet.
+
+## Track User
+
+Start tracking a user. This will automatically follow the user on Twitter and enable push notifications for their account.
+
+<ParamField body="username" type="string" required>
+  The Twitter handle (screen name) of the user to track.
+</ParamField>
+
+<ResponseField name="message" type="string">
+  Confirmation message.
+</ResponseField>
+
+<ResponseField name="data" type="object">
+  User profile data returned from Twitter.
+</ResponseField>
+
+<RequestExample>
+  ```bash Example Request
+  curl -X POST http://localhost:6969/track-user \
+    -H "Content-Type: application/json" \
+    -d '{ "username": "elonmusk" }'
+  ```
+</RequestExample>
+
+<ResponseExample>
+  ```json Response
+  {
+    "message": "Now tracking Elon Musk",
+    "data": {
+      "id": "44196397",
+      "name": "Elon Musk",
+      "username": "elonmusk"
+      // ... other user fields
+    }
+  }
+  ```
+</ResponseExample>
+
+## Untrack User
+
+Stop tracking a user. This will unfollow the user and disable notifications.
+
+<ParamField body="username" type="string" required>
+  The Twitter handle of the user to stop tracking.
+</ParamField>
+
+<RequestExample>
+  ```bash Example Request
+  curl -X DELETE http://localhost:6969/track-user \
+    -H "Content-Type: application/json" \
+    -d '{ "username": "elonmusk" }'
+  ```
+</RequestExample>
+
+<ResponseExample>
+  ```json Response
+  {
+    "message": "Stopped tracking user elonmusk"
+  }
+  ```
+</ResponseExample>
+
+## List Tracked Users
+
+_Note: This endpoint implementation is currently pending._
+
+<RequestExample>
+  ```bash Example Request curl -X GET http://localhost:6969/tracked-users ```
+</RequestExample>
+
+<ResponseExample>
+  ```json Response
+  {
+    "tracked_users": []
+  }
+  ```
+</ResponseExample>

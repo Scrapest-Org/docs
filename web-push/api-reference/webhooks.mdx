@@ -1,0 +1,74 @@
+---
+title: "Webhooks"
+description: "Manage verification webhooks for receiving notifications"
+---
+
+The Web Push Service forwards received tweet notifications to registered webhooks.
+
+## Register Webhook
+
+<ParamField body="url" type="string" required>
+  The URL where notifications should be sent. Must be a valid URL.
+</ParamField>
+
+<RequestExample>
+  ```bash Example Request
+  curl -X POST http://localhost:6969/webhook \
+    -H "Content-Type: application/json" \
+    -d '{ "url": "https://your-webhook.com/endpoint" }'
+  ```
+</RequestExample>
+
+<ResponseExample>
+  ```json Response
+  {
+    "message": "Webhook registered successfully"
+  }
+  ```
+</ResponseExample>
+
+## List Webhooks
+
+Retrieve all currently registered webhooks.
+
+<ResponseField name="webhooks" type="array">
+  List of registered webhook URLs.
+</ResponseField>
+
+<RequestExample>
+  ```bash Example Request curl -X GET http://localhost:6969/webhooks ```
+</RequestExample>
+
+<ResponseExample>
+  ```json Response
+  {
+    "webhooks": [
+      "https://your-webhook.com/endpoint"
+    ]
+  }
+  ```
+</ResponseExample>
+
+## Delete Webhook
+
+Remove a webhook from the registry.
+
+<ParamField body="url" type="string" required>
+  The URL of the webhook to remove.
+</ParamField>
+
+<RequestExample>
+  ```bash Example Request
+  curl -X DELETE http://localhost:6969/webhook \
+    -H "Content-Type: application/json" \
+    -d '{ "url": "https://your-webhook.com/endpoint" }'
+  ```
+</RequestExample>
+
+<ResponseExample>
+  ```json Response
+  {
+    "message": "Webhook deleted successfully"
+  }
+  ```
+</ResponseExample>

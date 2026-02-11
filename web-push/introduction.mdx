@@ -1,0 +1,28 @@
+---
+title: "Introduction"
+description: "Overview of the Web Push Service"
+---
+
+The **Web Push Service** allows you to track Twitter/X users and receive their updates via push notifications, which are then forwarded to registered verification webhooks.
+
+## Features
+
+- **Real-time Updates**: Receive tweets as soon as they are pushed by Twitter.
+- **Webhook Integration**: Forward notifications to your own endpoints.
+- **Twitter Authentication**: Handles login and session management automatically.
+- **Mozilla Autopush**: Utilizes the robust Autopush service for reliable delivery.
+
+## How it Works
+
+The service operates by:
+
+1.  **Logging into Twitter**: Using provided credentials or cookies.
+2.  **Registering with Autopush**: Establishing a connection to Mozilla's push service.
+3.  **Linking Account**: Associating the push endpoint with your Twitter account.
+4.  **Listening**: Waiting for push notifications via WebSocket.
+5.  **Forwarding**: Decrypting the payload and sending it to your registered webhooks.
+
+<Note>
+  Using this program may result in the suspension of your Twitter account. Use
+  at your own risk.
+</Note>

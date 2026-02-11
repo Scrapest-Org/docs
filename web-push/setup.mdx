@@ -1,0 +1,73 @@
+---
+title: "Setup & Installation"
+description: "Get the Web Push Service up and running"
+---
+
+## Prerequisites
+
+Before you begin, ensure you have the following installed:
+
+- **[Bun](https://bun.sh/)**: The JavaScript runtime used by the service.
+- **Redis**: Required for storing webhook URLs.
+
+## Installation
+
+Navigate to the `apps/web_push` directory and install dependencies:
+
+```bash
+cd apps/web_push
+bun install
+```
+
+## Configuration
+
+### Environment Variables
+
+Create a `.env` file in the `apps/web_push` directory (or use the root `.env` if configured) with the following variable:
+
+```env
+REDIS_URL="redis://localhost:6379"
+PORT=6969
+```
+
+### Twitter Configuration
+
+copy `config_example.json` to `config.json` and update it with your Twitter credentials:
+
+```json
+{
+  "twitter": {
+    "screen_name": "YOUR_SCREEN_NAME",
+    "password": "YOUR_PASSWORD",
+    "authentication_secret": "YOUR_2FA_SECRET",
+    "retry": 5,
+    "cookies": { "auth_token": "", "ct0": "" }
+  }
+  // ... other fields are auto-generated
+}
+```
+
+<Warning>
+  If `twitter.retry` hits 0, the script stops. Check your credentials and reset
+  it to 5.
+</Warning>
+
+## Running the Service
+
+### Development
+
+To run with hot-reloading enabled:
+
+```bash
+bun run dev
+```
+
+### Production
+
+To run in production mode:
+
+```bash
+bun run start
+```
+
+The server will start on port `6969` (or your configured `PORT`).
