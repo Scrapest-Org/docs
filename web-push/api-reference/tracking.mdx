@@ -27,12 +27,26 @@ Start tracking a user. This will automatically follow the user on Twitter and en
 </ResponseField>
 
 <RequestExample>
-  ```bash Example Request
+  ```bash curl
   curl -X POST https://webpush-production.up.railway.app/track-user \
     -H "Content-Type: application/json" \
     -H "x-api-token: YOUR_SECRET_TOKEN" \
     -d '{ "username": "elonmusk" }'
   ```
+
+```javascript fetch
+fetch("https://webpush-production.up.railway.app/track-user", {
+  method: "POST",
+  headers: {
+    "Content-Type": "application/json",
+    "x-api-token": "YOUR_SECRET_TOKEN",
+  },
+  body: JSON.stringify({ username: "elonmusk" }),
+})
+  .then((response) => response.json())
+  .then((data) => console.log(data));
+```
+
 </RequestExample>
 
 <ResponseExample>
@@ -58,12 +72,26 @@ Stop tracking a user. This will unfollow the user and disable notifications.
 </ParamField>
 
 <RequestExample>
-  ```bash Example Request
+  ```bash curl
   curl -X DELETE https://webpush-production.up.railway.app/track-user \
     -H "Content-Type: application/json" \
     -H "x-api-token: YOUR_SECRET_TOKEN" \
     -d '{ "username": "elonmusk" }'
   ```
+
+```javascript fetch
+fetch("https://webpush-production.up.railway.app/track-user", {
+  method: "DELETE",
+  headers: {
+    "Content-Type": "application/json",
+    "x-api-token": "YOUR_SECRET_TOKEN",
+  },
+  body: JSON.stringify({ username: "elonmusk" }),
+})
+  .then((response) => response.json())
+  .then((data) => console.log(data));
+```
+
 </RequestExample>
 
 <ResponseExample>
@@ -79,9 +107,22 @@ Stop tracking a user. This will unfollow the user and disable notifications.
 _Note: This endpoint implementation is currently pending._
 
 <RequestExample>
-  ```bash Example Request curl -X GET
-  https://webpush-production.up.railway.app/tracked-users \ -H "x-api-token:
-  YOUR_SECRET_TOKEN" ```
+  ```bash curl
+  curl -X GET https://webpush-production.up.railway.app/tracked-users \
+  -H "x-api-token: YOUR_SECRET_TOKEN"
+  ```
+
+```javascript fetch
+fetch("https://webpush-production.up.railway.app/tracked-users", {
+  method: "GET",
+  headers: {
+    "x-api-token": "YOUR_SECRET_TOKEN",
+  },
+})
+  .then((response) => response.json())
+  .then((data) => console.log(data));
+```
+
 </RequestExample>
 
 <ResponseExample>

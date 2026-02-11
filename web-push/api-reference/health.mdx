@@ -28,7 +28,16 @@ This endpoint allows you to verify that the Web Push Service is running correctl
 </ResponseField>
 
 <RequestExample>
-  ```bash Example Request curl -X GET http://localhost:6969/ ```
+  ```bash curl
+  curl -X GET http://localhost:6969/
+  ```
+
+```javascript fetch
+fetch("http://localhost:6969/")
+  .then((response) => response.json())
+  .then((data) => console.log(data));
+```
+
 </RequestExample>
 
 <ResponseExample>

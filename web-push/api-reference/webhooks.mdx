@@ -17,12 +17,26 @@ The Web Push Service forwards received tweet notifications to registered webhook
 </ParamField>
 
 <RequestExample>
-  ```bash Example Request
+  ```bash curl
   curl -X POST https://webpush-production.up.railway.app/webhook \
     -H "Content-Type: application/json" \
     -H "x-api-token: YOUR_SECRET_TOKEN" \
     -d '{ "url": "https://your-webhook.com/endpoint" }'
   ```
+
+```javascript fetch
+fetch("https://webpush-production.up.railway.app/webhook", {
+  method: "POST",
+  headers: {
+    "Content-Type": "application/json",
+    "x-api-token": "YOUR_SECRET_TOKEN",
+  },
+  body: JSON.stringify({ url: "https://your-webhook.com/endpoint" }),
+})
+  .then((response) => response.json())
+  .then((data) => console.log(data));
+```
+
 </RequestExample>
 
 <ResponseExample>
@@ -42,8 +56,22 @@ Retrieve all currently registered webhooks.
 </ResponseField>
 
 <RequestExample>
-  ```bash Example Request curl -X GET
-  https://webpush-production.up.railway.app/webhooks ```
+  ```bash curl
+  curl -X GET https://webpush-production.up.railway.app/webhooks \
+  -H "x-api-token: YOUR_SECRET_TOKEN"
+  ```
+
+```javascript fetch
+fetch("https://webpush-production.up.railway.app/webhooks", {
+  method: "GET",
+  headers: {
+    "x-api-token": "YOUR_SECRET_TOKEN",
+  },
+})
+  .then((response) => response.json())
+  .then((data) => console.log(data));
+```
+
 </RequestExample>
 
 <ResponseExample>
@@ -65,12 +93,26 @@ Remove a webhook from the registry.
 </ParamField>
 
 <RequestExample>
-  ```bash Example Request
+  ```bash curl
   curl -X DELETE https://webpush-production.up.railway.app/webhook \
     -H "Content-Type: application/json" \
     -H "x-api-token: YOUR_SECRET_TOKEN" \
     -d '{ "url": "https://your-webhook.com/endpoint" }'
   ```
+
+```javascript fetch
+fetch("https://webpush-production.up.railway.app/webhook", {
+  method: "DELETE",
+  headers: {
+    "Content-Type": "application/json",
+    "x-api-token": "YOUR_SECRET_TOKEN",
+  },
+  body: JSON.stringify({ url: "https://your-webhook.com/endpoint" }),
+})
+  .then((response) => response.json())
+  .then((data) => console.log(data));
+```
+
 </RequestExample>
 
 <ResponseExample>
