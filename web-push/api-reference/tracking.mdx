@@ -15,7 +15,9 @@ You can track specific Twitter users to receive push notifications whenever they
 Start tracking a user. This will automatically follow the user on Twitter and enable push notifications for their account.
 
 <ParamField body="username" type="string" required>
-  The Twitter handle (screen name) of the user to track.
+  The Twitter handle (screen name) of the user to track. **Validation**: - Must
+  be a string. - Length: 1-15 characters. - Allowed characters: Letters,
+  numbers, and underscores (`_`).
 </ParamField>
 
 <ResponseField name="message" type="string">
@@ -131,4 +133,39 @@ fetch("https://webpush-production.up.railway.app/tracked-users", {
     "tracked_users": []
   }
   ```
+</ResponseExample>
+
+### Error Responses
+
+<ResponseExample>
+```json 422 Unprocessable Entity
+{
+  "status": "fail",
+  "error": "Invalid username format",
+  "issues": [
+    {
+      "validation": "regex",
+      "code": "invalid_string",
+      "message": "Username can only contain letters, numbers, and underscores.",
+      "path": [
+        {
+          "type": "object",
+          "origin": "value",
+          "input": "invalid-user!",
+          "key": "username",
+          "value": "invalid-user!"
+        }
+      ]
+    }
+  ]
+}
+```
+
+```json 400 Bad Request
+{
+  "status": "error",
+  "error": "Missing 'username' in request body"
+}
+```
+
 </ResponseExample>

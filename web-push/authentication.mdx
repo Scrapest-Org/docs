@@ -26,9 +26,18 @@ You can interact with our live Web Push instance at:
 
 ### Example Request
 
-```bash
-curl -X POST https://webpush-production.up.railway.app/track-user \
-  -H "Content-Type: application/json" \
-  -H "x-api-token: YOUR_SECRET_TOKEN" \
-  -d '{ "username": "elonmusk" }'
-```
+````
+
+### Error Responses
+
+If the `x-api-token` is missing or invalid, the API will return a `400 Bad Request` error.
+
+<ResponseExample>
+```json 400 Bad Request
+{
+  "status": "error",
+  "error": "Invalid auth token provided"
+}
+````
+
+</ResponseExample>

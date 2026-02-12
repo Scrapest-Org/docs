@@ -13,8 +13,44 @@ The Web Push Service forwards received tweet notifications to registered webhook
 ## Register Webhook
 
 <ParamField body="url" type="string" required>
-  The URL where notifications should be sent. Must be a valid URL.
+  The URL where notifications should be sent. **Validation**: - Must be a valid
+  URL string.
 </ParamField>
+
+### Error Responses
+
+<ResponseExample>
+```json 422 Unprocessable Entity
+{
+  "status": "fail",
+  "error": "Invalid URL format",
+  "issues": [
+    {
+      "validation": "url",
+      "code": "invalid_url",
+      "message": "URL must be valid",
+      "path": [
+        {
+          "type": "object",
+          "origin": "value",
+          "input": "not-a-url",
+          "key": "url",
+          "value": "not-a-url"
+        }
+      ]
+    }
+  ]
+}
+```
+
+```json 400 Bad Request
+{
+  "status": "error",
+  "error": "Missing 'url' in request body"
+}
+```
+
+</ResponseExample>
 
 <RequestExample>
   ```bash curl

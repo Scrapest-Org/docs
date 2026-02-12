@@ -3,26 +3,27 @@ title: "Introduction"
 description: "Overview of the Web Push Service"
 ---
 
-The **Web Push Service** allows you to track Twitter/X users and receive their updates via push notifications, which are then forwarded to registered verification webhooks.
+The **Web Push Service** is a specialized tool designed to track Twitter/X users and receive real-time updates via push notifications. It bridges the gap between Twitter's internal push notification system and your own applications by forwarding these notifications to registered webhooks.
 
-## Features
+## Key Features
 
-- **Real-time Updates**: Receive tweets as soon as they are pushed by Twitter.
-- **Webhook Integration**: Forward notifications to your own endpoints.
-- **Twitter Authentication**: Handles login and session management automatically.
-- **Mozilla Autopush**: Utilizes the robust Autopush service for reliable delivery.
+- **Real-time Tweet Updates**: Capture tweets instantly as they are pushed by Twitter's infrastructure.
+- **Webhook Integration**: Seamlessly forward notifications to your own http endpoints for processing.
+- **Automated Authentication**: Handles Twitter login, session management, and guest token generation automatically.
+- **Mozilla Autopush**: Leverages Mozilla's reliable Autopush service to maintain a persistent connection with Twitter.
 
 ## How it Works
 
-The service operates by:
+The service orchestrates several components to deliver notifications:
 
-1.  **Logging into Twitter**: Using provided credentials or cookies.
-2.  **Registering with Autopush**: Establishing a connection to Mozilla's push service.
-3.  **Linking Account**: Associating the push endpoint with your Twitter account.
-4.  **Listening**: Waiting for push notifications via WebSocket.
-5.  **Forwarding**: Decrypting the payload and sending it to your registered webhooks.
+1.  **Authentication**: Logs into Twitter using provided credentials and cookies.
+2.  **Push Registration**: Registers with Mozilla Autopush to obtain a unique push endpoint.
+3.  **Account Linking**: Associates the push endpoint with your Twitter account to enable notifications.
+4.  **WebSocket Listener**: Maintains a persistent WebSocket connection to receive incoming push payloads.
+5.  **Payload Decryption & Forwarding**: Decrypts the push notification payload and forwards the relevant tweet data to your configured webhooks.
 
-<Note>
-  Using this program may result in the suspension of your Twitter account. Use
-  at your own risk.
-</Note>
+<Warning>
+  **Risk Warning**: This tool automates interactions with Twitter/X in ways that
+  may be against their Terms of Service. Using this program could result in the
+  suspension or banning of your Twitter account. Use at your own risk.
+</Warning>
