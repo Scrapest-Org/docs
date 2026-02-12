@@ -3,28 +3,20 @@ title: "Delete Webhook"
 api: "DELETE https://webpush-production.up.railway.app/webhook"
 ---
 
-Remove a webhook from the registry.
-
-<ParamField body="url" type="string" required>
-  The URL of the webhook to remove.
-</ParamField>
+Remove the webhook registered to your API key.
 
 <RequestExample>
   ```bash curl
   curl -X DELETE https://webpush-production.up.railway.app/webhook \
-    -H "Content-Type: application/json" \
-    -H "x-api-token: YOUR_SECRET_TOKEN" \
-    -d '{ "url": "https://your-webhook.com/endpoint" }'
+    -H "x-api-key: YOUR_API_KEY"
   ```
 
 ```javascript fetch
 fetch("https://webpush-production.up.railway.app/webhook", {
   method: "DELETE",
   headers: {
-    "Content-Type": "application/json",
-    "x-api-token": "YOUR_SECRET_TOKEN",
+    "x-api-key": "YOUR_API_KEY",
   },
-  body: JSON.stringify({ url: "https://your-webhook.com/endpoint" }),
 })
   .then((response) => response.json())
   .then((data) => console.log(data));

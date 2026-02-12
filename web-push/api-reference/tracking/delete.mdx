@@ -3,7 +3,13 @@ title: "Untrack User"
 api: "DELETE https://webpush-production.up.railway.app/track-user"
 ---
 
-Stop tracking a user. This will unfollow the user and disable notifications.
+Stop tracking a user.
+
+<Note>
+  **Smart Untracking**: This endpoint implements smart untracking. The user will
+  only be unfollowed on Twitter if no other API key is currently tracking them.
+  Use with confidence.
+</Note>
 
 <ParamField body="username" type="string" required>
   The Twitter handle of the user to stop tracking.
@@ -13,7 +19,7 @@ Stop tracking a user. This will unfollow the user and disable notifications.
   ```bash curl
   curl -X DELETE https://webpush-production.up.railway.app/track-user \
     -H "Content-Type: application/json" \
-    -H "x-api-token: YOUR_SECRET_TOKEN" \
+    -H "x-api-key: YOUR_API_KEY" \
     -d '{ "username": "elonmusk" }'
   ```
 
@@ -22,7 +28,7 @@ fetch("https://webpush-production.up.railway.app/track-user", {
   method: "DELETE",
   headers: {
     "Content-Type": "application/json",
-    "x-api-token": "YOUR_SECRET_TOKEN",
+    "x-api-key": "YOUR_API_KEY",
   },
   body: JSON.stringify({ username: "elonmusk" }),
 })

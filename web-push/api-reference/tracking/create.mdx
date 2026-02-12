@@ -6,7 +6,7 @@ api: "POST https://webpush-production.up.railway.app/track-user"
 Start tracking a user. This will automatically follow the user on Twitter and enable push notifications for their account.
 
 <Note>
-  This endpoint requires authentication. You must provide the `x-api-token`
+  This endpoint requires authentication. You must provide the `x-api-key`
   header.
 </Note>
 
@@ -75,7 +75,7 @@ Start tracking a user. This will automatically follow the user on Twitter and en
   ```bash curl
   curl -X POST https://webpush-production.up.railway.app/track-user \
     -H "Content-Type: application/json" \
-    -H "x-api-token: YOUR_SECRET_TOKEN" \
+    -H "x-api-key: YOUR_API_KEY" \
     -d '{ "username": "elonmusk" }'
   ```
 
@@ -84,7 +84,7 @@ fetch("https://webpush-production.up.railway.app/track-user", {
   method: "POST",
   headers: {
     "Content-Type": "application/json",
-    "x-api-token": "YOUR_SECRET_TOKEN",
+    "x-api-key": "YOUR_API_KEY",
   },
   body: JSON.stringify({ username: "elonmusk" }),
 })
