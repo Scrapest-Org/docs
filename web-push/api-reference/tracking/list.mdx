@@ -1,0 +1,35 @@
+---
+title: "List Tracked Users"
+api: "GET https://webpush-production.up.railway.app/tracked-users"
+---
+
+Retrieve a list of all currently tracked users.
+
+_Note: This endpoint implementation is currently pending._
+
+<RequestExample>
+  ```bash curl
+  curl -X GET https://webpush-production.up.railway.app/tracked-users \
+  -H "x-api-token: YOUR_SECRET_TOKEN"
+  ```
+
+```javascript fetch
+fetch("https://webpush-production.up.railway.app/tracked-users", {
+  method: "GET",
+  headers: {
+    "x-api-token": "YOUR_SECRET_TOKEN",
+  },
+})
+  .then((response) => response.json())
+  .then((data) => console.log(data));
+```
+
+</RequestExample>
+
+<ResponseExample>
+  ```json Response
+  {
+    "tracked_users": []
+  }
+  ```
+</ResponseExample>

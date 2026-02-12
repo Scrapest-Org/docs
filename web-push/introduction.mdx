@@ -1,29 +1,24 @@
 ---
 title: "Introduction"
-description: "Overview of the Web Push Service"
+description: "Start tracking Twitter/X users with the Web Push API"
 ---
 
-The **Web Push Service** is a specialized tool designed to track Twitter/X users and receive real-time updates via push notifications. It bridges the gap between Twitter's internal push notification system and your own applications by forwarding these notifications to registered webhooks.
+The **Web Push API** enables you to programmatically track Twitter (X) users and receive their tweets in real-time via webhooks.
 
-## Key Features
+Instead of polling Twitter's API or scraping pages, this service pushes new tweets to your server the moment they are posted.
 
-- **Real-time Tweet Updates**: Capture tweets instantly as they are pushed by Twitter's infrastructure.
-- **Webhook Integration**: Seamlessly forward notifications to your own http endpoints for processing.
-- **Automated Authentication**: Handles Twitter login, session management, and guest token generation automatically.
-- **Mozilla Autopush**: Leverages Mozilla's reliable Autopush service to maintain a persistent connection with Twitter.
+## What can you do?
 
-## How it Works
+- **Track Users**: Add specific Twitter users to your tracking list.
+- **Receive Webhooks**: Get JSON payloads sent to your URL whenever a tracked user tweets.
+- **Manage Subscriptions**: Add or remove users from your tracking list dynamically via API.
 
-The service orchestrates several components to deliver notifications:
+## Getting Started
 
-1.  **Authentication**: Logs into Twitter using provided credentials and cookies.
-2.  **Push Registration**: Registers with Mozilla Autopush to obtain a unique push endpoint.
-3.  **Account Linking**: Associates the push endpoint with your Twitter account to enable notifications.
-4.  **WebSocket Listener**: Maintains a persistent WebSocket connection to receive incoming push payloads.
-5.  **Payload Decryption & Forwarding**: Decrypts the push notification payload and forwards the relevant tweet data to your configured webhooks.
+To start receiving updates, you only need to:
 
-<Warning>
-  **Risk Warning**: This tool automates interactions with Twitter/X in ways that
-  may be against their Terms of Service. Using this program could result in the
-  suspension or banning of your Twitter account. Use at your own risk.
-</Warning>
+1.  **Authentication**: Get your API key ready.
+2.  **Register a Webhook**: Tell us where to send the data.
+3.  **Track a User**: Tell us who to watch.
+
+Check out the [API Reference](/web-push/api-reference/health) to see the available endpoints.

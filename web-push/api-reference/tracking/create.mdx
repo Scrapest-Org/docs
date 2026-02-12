@@ -1,0 +1,95 @@
+---
+title: "Track User"
+api: "POST https://webpush-production.up.railway.app/track-user"
+---
+
+Start tracking a user. This will automatically follow the user on Twitter and enable push notifications for their account.
+
+<Note>
+  This endpoint requires authentication. You must provide the `x-api-token`
+  header.
+</Note>
+
+<ParamField body="username" type="string" required>
+  The Twitter handle (screen name) of the user to track. **Validation**: - Must
+  be a string. - Length: 1-15 characters. - Allowed characters: Letters,
+  numbers, and underscores (`_`).
+</ParamField>
+
+<ResponseField name="message" type="string">
+  Confirmation message.
+</ResponseField>
+
+<ResponseField name="data" type="object">
+  User profile data returned from Twitter.
+</ResponseField>
+
+### Error Responses
+
+<ResponseExample>
+  ```json 200 Success
+  {
+    "message": "Now tracking Elon Musk",
+    "data": {
+      "id": "44196397",
+      "name": "Elon Musk",
+      "username": "elonmusk"
+      // ... other user fields
+    }
+  }
+  ```
+
+```json 422 Unprocessable Entity
+{
+  "status": "fail",
+  "error": "Invalid username format",
+  "issues": [
+    {
+      "validation": "regex",
+      "code": "invalid_string",
+      "message": "Username can only contain letters, numbers, and underscores.",
+      "path": [
+        {
+          "type": "object",
+          "origin": "value",
+          "input": "invalid-user!",
+          "key": "username",
+          "value": "invalid-user!"
+        }
+      ]
+    }
+  ]
+}
+```
+
+```json 400 Bad Request
+{
+  "status": "error",
+  "error": "Missing 'username' in request body"
+}
+```
+
+</ResponseExample>
+
+<RequestExample>
+  ```bash curl
+  curl -X POST https://webpush-production.up.railway.app/track-user \
+    -H "Content-Type: application/json" \
+    -H "x-api-token: YOUR_SECRET_TOKEN" \
+    -d '{ "username": "elonmusk" }'
+  ```
+
+```javascript fetch
+fetch("https://webpush-production.up.railway.app/track-user", {
+  method: "POST",
+  headers: {
+    "Content-Type": "application/json",
+    "x-api-token": "YOUR_SECRET_TOKEN",
+  },
+  body: JSON.stringify({ username: "elonmusk" }),
+})
+  .then((response) => response.json())
+  .then((data) => console.log(data));
+```
+
+</RequestExample>

@@ -1,0 +1,39 @@
+---
+title: "List Webhooks"
+api: "GET https://webpush-production.up.railway.app/webhooks"
+---
+
+Retrieve all currently registered webhooks.
+
+<ResponseField name="webhooks" type="array">
+  List of registered webhook URLs.
+</ResponseField>
+
+<RequestExample>
+  ```bash curl
+  curl -X GET https://webpush-production.up.railway.app/webhooks \
+  -H "x-api-token: YOUR_SECRET_TOKEN"
+  ```
+
+```javascript fetch
+fetch("https://webpush-production.up.railway.app/webhooks", {
+  method: "GET",
+  headers: {
+    "x-api-token": "YOUR_SECRET_TOKEN",
+  },
+})
+  .then((response) => response.json())
+  .then((data) => console.log(data));
+```
+
+</RequestExample>
+
+<ResponseExample>
+  ```json Response
+  {
+    "webhooks": [
+      "https://your-webhook.com/endpoint"
+    ]
+  }
+  ```
+</ResponseExample>

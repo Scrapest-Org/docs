@@ -1,0 +1,82 @@
+---
+title: "Register Webhook"
+api: "POST https://webpush-production.up.railway.app/webhook"
+---
+
+Register a new webhook URL to receive tweet notifications.
+
+<Note>
+  This endpoint requires authentication. You must provide the `x-api-token`
+  header.
+</Note>
+
+## Body Parameters
+
+<ParamField body="url" type="string" required>
+  The URL where notifications should be sent. **Validation**: - Must be a valid
+  URL string.
+</ParamField>
+
+### Error Responses
+
+<ResponseExample>
+  ```json 200 Success
+  {
+    "message": "Webhook registered successfully"
+  }
+  ```
+
+```json 422 Unprocessable Entity
+{
+  "status": "fail",
+  "error": "Invalid URL format",
+  "issues": [
+    {
+      "validation": "url",
+      "code": "invalid_url",
+      "message": "URL must be valid",
+      "path": [
+        {
+          "type": "object",
+          "origin": "value",
+          "input": "not-a-url",
+          "key": "url",
+          "value": "not-a-url"
+        }
+      ]
+    }
+  ]
+}
+```
+
+```json 400 Bad Request
+{
+  "status": "error",
+  "error": "Missing 'url' in request body"
+}
+```
+
+</ResponseExample>
+
+<RequestExample>
+  ```bash curl
+  curl -X POST https://webpush-production.up.railway.app/webhook \
+    -H "Content-Type: application/json" \
+    -H "x-api-token: YOUR_SECRET_TOKEN" \
+    -d '{ "url": "https://your-webhook.com/endpoint" }'
+  ```
+
+```javascript fetch
+fetch("https://webpush-production.up.railway.app/webhook", {
+  method: "POST",
+  headers: {
+    "Content-Type": "application/json",
+    "x-api-token": "YOUR_SECRET_TOKEN",
+  },
+  body: JSON.stringify({ url: "https://your-webhook.com/endpoint" }),
+})
+  .then((response) => response.json())
+  .then((data) => console.log(data));
+```
+
+</RequestExample>

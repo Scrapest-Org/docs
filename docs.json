@@ -15,18 +15,28 @@
         "groups": [
           {
             "group": "Getting started",
-            "pages": [
-              "web-push/introduction",
-              "web-push/setup",
-              "web-push/authentication"
-            ]
+            "pages": ["web-push/introduction", "web-push/authentication"]
           },
           {
             "group": "API Reference",
             "pages": [
               "web-push/api-reference/health",
-              "web-push/api-reference/webhooks",
-              "web-push/api-reference/tracking"
+              {
+                "group": "Webhooks",
+                "pages": [
+                  "web-push/api-reference/webhooks/create",
+                  "web-push/api-reference/webhooks/list",
+                  "web-push/api-reference/webhooks/delete"
+                ]
+              },
+              {
+                "group": "Tracking",
+                "pages": [
+                  "web-push/api-reference/tracking/create",
+                  "web-push/api-reference/tracking/list",
+                  "web-push/api-reference/tracking/delete"
+                ]
+              }
             ]
           }
         ]
@@ -45,7 +55,7 @@
     "primary": {
       "type": "button",
       "label": "GitHub",
-      "href": "https://github.com/hawk-trade/x-scraper"
+      "href": "https://github.com/Scrapest-Org/x-scraper"
     }
   },
   "contextual": {

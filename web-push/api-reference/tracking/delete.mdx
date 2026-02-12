@@ -1,0 +1,41 @@
+---
+title: "Untrack User"
+api: "DELETE https://webpush-production.up.railway.app/track-user"
+---
+
+Stop tracking a user. This will unfollow the user and disable notifications.
+
+<ParamField body="username" type="string" required>
+  The Twitter handle of the user to stop tracking.
+</ParamField>
+
+<RequestExample>
+  ```bash curl
+  curl -X DELETE https://webpush-production.up.railway.app/track-user \
+    -H "Content-Type: application/json" \
+    -H "x-api-token: YOUR_SECRET_TOKEN" \
+    -d '{ "username": "elonmusk" }'
+  ```
+
+```javascript fetch
+fetch("https://webpush-production.up.railway.app/track-user", {
+  method: "DELETE",
+  headers: {
+    "Content-Type": "application/json",
+    "x-api-token": "YOUR_SECRET_TOKEN",
+  },
+  body: JSON.stringify({ username: "elonmusk" }),
+})
+  .then((response) => response.json())
+  .then((data) => console.log(data));
+```
+
+</RequestExample>
+
+<ResponseExample>
+  ```json Response
+  {
+    "message": "Stopped tracking user elonmusk"
+  }
+  ```
+</ResponseExample>
