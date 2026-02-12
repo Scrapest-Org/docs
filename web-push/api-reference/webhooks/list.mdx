@@ -1,25 +1,25 @@
 ---
-title: "List Webhooks"
-api: "GET https://webpush-production.up.railway.app/webhooks"
+title: "Get Webhook"
+api: "GET https://webpush-production.up.railway.app/webhook"
 ---
 
-Retrieve all currently registered webhooks.
+Retrieve the registered webhook for your API key.
 
-<ResponseField name="webhooks" type="array">
-  List of registered webhook URLs.
+<ResponseField name="data" type="string">
+  The registered webhook URL, or null if none is registered.
 </ResponseField>
 
 <RequestExample>
   ```bash curl
-  curl -X GET https://webpush-production.up.railway.app/webhooks \
-  -H "x-api-token: YOUR_SECRET_TOKEN"
+  curl -X GET https://webpush-production.up.railway.app/webhook \
+  -H "x-api-key: YOUR_API_KEY"
   ```
 
 ```javascript fetch
-fetch("https://webpush-production.up.railway.app/webhooks", {
+fetch("https://webpush-production.up.railway.app/webhook", {
   method: "GET",
   headers: {
-    "x-api-token": "YOUR_SECRET_TOKEN",
+    "x-api-key": "YOUR_API_KEY",
   },
 })
   .then((response) => response.json())
@@ -31,9 +31,7 @@ fetch("https://webpush-production.up.railway.app/webhooks", {
 <ResponseExample>
   ```json Response
   {
-    "webhooks": [
-      "https://your-webhook.com/endpoint"
-    ]
+    "data": "https://your-webhook.com/endpoint"
   }
   ```
 </ResponseExample>

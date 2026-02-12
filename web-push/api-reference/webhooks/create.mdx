@@ -6,15 +6,15 @@ api: "POST https://webpush-production.up.railway.app/webhook"
 Register a new webhook URL to receive tweet notifications.
 
 <Note>
-  This endpoint requires authentication. You must provide the `x-api-token`
+  This endpoint requires authentication. You must provide the `x-api-key`
   header.
 </Note>
 
 ## Body Parameters
 
 <ParamField body="url" type="string" required>
-  The URL where notifications should be sent. **Validation**: - Must be a valid
-  URL string.
+  The URL where notifications should be sent. **Note**: Registering a webhook
+  overwrites any previously registered webhook for this API key.
 </ParamField>
 
 ### Error Responses
@@ -62,7 +62,7 @@ Register a new webhook URL to receive tweet notifications.
   ```bash curl
   curl -X POST https://webpush-production.up.railway.app/webhook \
     -H "Content-Type: application/json" \
-    -H "x-api-token: YOUR_SECRET_TOKEN" \
+    -H "x-api-key: YOUR_API_KEY" \
     -d '{ "url": "https://your-webhook.com/endpoint" }'
   ```
 
@@ -71,7 +71,7 @@ fetch("https://webpush-production.up.railway.app/webhook", {
   method: "POST",
   headers: {
     "Content-Type": "application/json",
-    "x-api-token": "YOUR_SECRET_TOKEN",
+    "x-api-key": "YOUR_API_KEY",
   },
   body: JSON.stringify({ url: "https://your-webhook.com/endpoint" }),
 })

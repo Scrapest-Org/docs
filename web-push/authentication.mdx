@@ -5,13 +5,33 @@ description: "Authenticating requests to the Web Push Service"
 
 Most endpoints in the Web Push Service are protected and require authentication.
 
-## API Token
+## API Key
 
-To authenticate your requests, you must include the `x-api-token` header with your configured secret key.
+To authenticate your requests, you must include the `x-api-key` header with a valid API key.
 
-<ParamField header="x-api-token" type="string" required>
-  The secret API key configured in your `WEBPUSH_KEY` environment variable.
+<ParamField header="x-api-key" type="string" required>
+  Your unique API key generated via the `/auth` endpoint.
 </ParamField>
+
+## Generate API Key
+
+To get started, you need to generate an API key. **Note:** There is a strictly enforced limit of **3 API keys** per entity.
+
+```bash
+curl -X POST https://webpush-production.up.railway.app/auth
+```
+
+### Response
+
+```json
+{
+  "status": "success",
+  "message": "API key generated successfully",
+  "data": {
+    "key": "7f8a9b..."
+  }
+}
+```
 
 ## Live Demo
 
@@ -30,14 +50,14 @@ You can interact with our live Web Push instance at:
 
 ```bash curl
 curl -X GET https://webpush-production.up.railway.app/health \
-  -H "x-api-token: your-secret-key"
+  -H "x-api-key: your-api-key"
 ```
 
 ```javascript fetch
 fetch("https://webpush-production.up.railway.app/health", {
   method: "GET",
   headers: {
-    "x-api-token": "your-secret-key",
+    "x-api-key": "your-api-key",
   },
 })
   .then((response) => response.json())
@@ -49,7 +69,7 @@ import requests
 
 url = "https://webpush-production.up.railway.app/health"
 headers = {
-    "x-api-token": "your-secret-key"
+    "x-api-key": "your-api-key"
 }
 
 response = requests.get(url, headers=headers)
@@ -76,7 +96,7 @@ func main() {
 		fmt.Println(err)
 		return
 	}
-	req.Header.Add("x-api-token", "your-secret-key")
+	req.Header.Add("x-api-key", "your-api-key")
 
 	res, err := client.Do(req)
 	if err != nil {
@@ -103,7 +123,7 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
 
     let res = client
         .get("https://webpush-production.up.railway.app/health")
-        .header("x-api-token", "your-secret-key")
+        .header("x-api-key", "your-api-key")
         .send()
         .await?
         .text()
@@ -118,11 +138,12 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
 
 ### Error Responses
 
-If the `x-api-token` is missing or invalid, the API will return a `400 Bad Request` error.
+- **401 Unauthorized**: Missing or invalid `x-api-key`.
+- **403 Forbidden**: API key limit reached (when generating keys).
 
-```json 400 Bad Request
+```json 401 Unauthorized
 {
   "status": "error",
-  "error": "Invalid auth token provided"
+  "error": "Missing or invalid x-api-key header"
 }
 ```
