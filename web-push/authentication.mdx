@@ -15,7 +15,10 @@ To authenticate your requests, you must include the `x-api-key` header with a va
 
 ## Generate API Key
 
-To get started, you need to generate an API key. **Note:** There is a strictly enforced limit of **3 API keys** per entity.
+To get started, you need to generate an API key via our **Telegram Bot**.
+**Note:** There is a strictly enforced limit of **3 API keys** per Telegram user.
+
+1.  Call the `/auth` endpoint to initiate the process.
 
 ```bash
 curl -X POST https://webpush-production.up.railway.app/auth
@@ -23,15 +26,23 @@ curl -X POST https://webpush-production.up.railway.app/auth
 
 ### Response
 
+The API will return an authentication link:
+
 ```json
 {
   "status": "success",
-  "message": "API key generated successfully",
+  "message": "Please authenticate via Telegram",
   "data": {
-    "key": "7f8a9b..."
+    "auth_url": "https://t.me/YourBotName?start=123abc456..."
   }
 }
 ```
+
+2.  **Click the `auth_url`** to open the Telegram Bot.
+3.  Click **Start** or send `/start ...`.
+4.  The bot will verify your session and send you a new **API Key**.
+
+> Keep this key safe! You can list your active keys at any time by sending `/getkey` to the bot.
 
 ## Live Demo
 
