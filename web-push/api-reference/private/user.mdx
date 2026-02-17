@@ -1,35 +1,80 @@
 ---
 title: "Get User Details"
+api: "GET https://webpush-production.up.railway.app/private/user"
 description: "Fetch detailed information about a Twitter user"
 sidebarTitle: "Get User"
 ---
 
-Retrieve full profile information for a specific Twitter user.
+Retrieve full profile information for a specific Twitter user directly from the scraper.
 
 <Warning>
   This endpoint is **PRIVATE** and intended for internal or administrative use.
-  It requires the `x-admin-key` header.
+  It requires the `x-admin-key` header to be set.
 </Warning>
 
-### endpoint: /private/user
-
 <ParamField header="x-admin-key" type="string" required>
-  The administrative API key configured in the deployment environment.
+  The administrative API key configured in the deployment environment
+  (`ADMIN_API_KEY`).
 </ParamField>
 
 <ParamField query="username" type="string" required>
-  The Twitter screen name (handle) of the user to fetch.
+  The Twitter screen name (handle) of the user to fetch (e.g., `elonmusk`).
 </ParamField>
 
 <ResponseField name="data" type="object">
-  The raw user object as returned by Twitter's GraphQL API.
+  The raw user object as returned by Twitter's GraphQL API. The structure
+  typically includes `id`, `rest_id`, `legacy` (profile info), and
+  `professional` fields.
 </ResponseField>
+
+<ResponseExample>
+
+```json 200 Success
+{
+  "id": "44196397",
+  "rest_id": "44196397",
+  "legacy": {
+    "created_at": "Tue Jun 02 20:12:29 +0000 2009",
+    "description": "",
+    "entities": {
+      "description": {
+        "urls": []
+      }
+    },
+    "favourites_count": 25724,
+    "followers_count": 170949281,
+    "friends_count": 529,
+    "location": "",
+    "name": "Elon Musk",
+    "screen_name": "elonmusk",
+    "statuses_count": 36980,
+    "verified": true
+  }
+  // ... full object
+}
+```
+
+</ResponseExample>
 
 <RequestExample>
 
 ```bash curl
 curl -X GET "https://webpush-production.up.railway.app/private/user?username=elonmusk" \
   -H "x-admin-key: YOUR_ADMIN_KEY"
+```
+
+```javascript fetch
+fetch(
+  "https://webpush-production.up.railway.app/private/user?username=elonmusk",
+  {
+    method: "GET",
+    headers: {
+      "x-admin-key": "YOUR_ADMIN_KEY",
+    },
+  },
+)
+  .then((response) => response.json())
+  .then((data) => console.log(data));
 ```
 
 </RequestExample>

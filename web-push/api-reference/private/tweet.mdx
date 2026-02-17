@@ -1,35 +1,74 @@
 ---
 title: "Get Tweet Details"
+api: "GET https://webpush-production.up.railway.app/private/tweet"
 description: "Fetch detailed information about a specific Tweet"
 sidebarTitle: "Get Tweet"
 ---
 
-Retrieve full data for a specific Tweet.
+Retrieve full data for a specific Tweet directly from the scraper.
 
 <Warning>
   This endpoint is **PRIVATE** and intended for internal or administrative use.
-  It requires the `x-admin-key` header.
+  It requires the `x-admin-key` header to be set.
 </Warning>
 
-### endpoint: /private/tweet
-
 <ParamField header="x-admin-key" type="string" required>
-  The administrative API key configured in the deployment environment.
+  The administrative API key configured in the deployment environment
+  (`ADMIN_API_KEY`).
 </ParamField>
 
 <ParamField query="tweetId" type="string" required>
-  The numeric ID of the Tweet to fetch.
+  The unique numeric ID of the Tweet to fetch.
 </ParamField>
 
 <ResponseField name="data" type="object">
   The raw tweet object as returned by Twitter's GraphQL API.
 </ResponseField>
 
+<ResponseExample>
+
+```json 200 Success
+{
+  "rest_id": "1758925562145892556",
+  "core": {
+    "user_results": {
+      "result": {
+        // User details
+      }
+    }
+  },
+  "legacy": {
+    "full_text": "This is likely a very interesting tweet.",
+    "created_at": "Sat Feb 17 12:00:00 +0000 2024",
+    "favorite_count": 12345,
+    "retweet_count": 678,
+    "reply_count": 90
+  }
+  // ... full object
+}
+```
+
+</ResponseExample>
+
 <RequestExample>
 
 ```bash curl
 curl -X GET "https://webpush-production.up.railway.app/private/tweet?tweetId=2019606922824151397" \
   -H "x-admin-key: YOUR_ADMIN_KEY"
+```
+
+```javascript fetch
+fetch(
+  "https://webpush-production.up.railway.app/private/tweet?tweetId=2019606922824151397",
+  {
+    method: "GET",
+    headers: {
+      "x-admin-key": "YOUR_ADMIN_KEY",
+    },
+  },
+)
+  .then((response) => response.json())
+  .then((data) => console.log(data));
 ```
 
 </RequestExample>
