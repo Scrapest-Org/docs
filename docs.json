@@ -21,6 +21,7 @@
             "group": "API Reference",
             "pages": [
               "web-push/api-reference/health",
+              "web-push/api-reference/auth",
               {
                 "group": "Webhooks",
                 "pages": [
@@ -35,6 +36,13 @@
                   "web-push/api-reference/tracking/create",
                   "web-push/api-reference/tracking/list",
                   "web-push/api-reference/tracking/delete"
+                ]
+              },
+              {
+                "group": "Private",
+                "pages": [
+                  "web-push/api-reference/private/user",
+                  "web-push/api-reference/private/tweet"
                 ]
               }
             ]

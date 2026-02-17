@@ -24,6 +24,12 @@ This endpoint allows you to verify that the Web Push Service is running correctl
     <ResponseField name="push_registered" type="boolean">
       Indicates if the push service is fully synchronized.
     </ResponseField>
+    <ResponseField name="user_queries_success" type="boolean">
+      Indicates if the test user query was successful.
+    </ResponseField>
+    <ResponseField name="tweet_queries_success" type="boolean">
+      Indicates if the test tweet query was successful.
+    </ResponseField>
   </Expandable>
 </ResponseField>
 
@@ -48,7 +54,9 @@ fetch("https://webpush-production.up.railway.app/")
       "service_running": true,
       "ws_connected": true,
       "twitter_authenticated": true,
-      "push_registered": true
+      "push_registered": true,
+      "user_queries_success": true,
+      "tweet_queries_success": true
     }
   }
   ```

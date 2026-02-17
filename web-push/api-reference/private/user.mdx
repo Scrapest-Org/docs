@@ -1,0 +1,35 @@
+---
+title: "Get User Details"
+description: "Fetch detailed information about a Twitter user"
+sidebarTitle: "Get User"
+---
+
+Retrieve full profile information for a specific Twitter user.
+
+<Warning>
+  This endpoint is **PRIVATE** and intended for internal or administrative use.
+  It requires the `x-admin-key` header.
+</Warning>
+
+### endpoint: /private/user
+
+<ParamField header="x-admin-key" type="string" required>
+  The administrative API key configured in the deployment environment.
+</ParamField>
+
+<ParamField query="username" type="string" required>
+  The Twitter screen name (handle) of the user to fetch.
+</ParamField>
+
+<ResponseField name="data" type="object">
+  The raw user object as returned by Twitter's GraphQL API.
+</ResponseField>
+
+<RequestExample>
+
+```bash curl
+curl -X GET "https://webpush-production.up.railway.app/private/user?username=elonmusk" \
+  -H "x-admin-key: YOUR_ADMIN_KEY"
+```
+
+</RequestExample>

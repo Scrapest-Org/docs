@@ -1,0 +1,35 @@
+---
+title: "Get Tweet Details"
+description: "Fetch detailed information about a specific Tweet"
+sidebarTitle: "Get Tweet"
+---
+
+Retrieve full data for a specific Tweet.
+
+<Warning>
+  This endpoint is **PRIVATE** and intended for internal or administrative use.
+  It requires the `x-admin-key` header.
+</Warning>
+
+### endpoint: /private/tweet
+
+<ParamField header="x-admin-key" type="string" required>
+  The administrative API key configured in the deployment environment.
+</ParamField>
+
+<ParamField query="tweetId" type="string" required>
+  The numeric ID of the Tweet to fetch.
+</ParamField>
+
+<ResponseField name="data" type="object">
+  The raw tweet object as returned by Twitter's GraphQL API.
+</ResponseField>
+
+<RequestExample>
+
+```bash curl
+curl -X GET "https://webpush-production.up.railway.app/private/tweet?tweetId=2019606922824151397" \
+  -H "x-admin-key: YOUR_ADMIN_KEY"
+```
+
+</RequestExample>

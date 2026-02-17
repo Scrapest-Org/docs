@@ -1,0 +1,67 @@
+---
+title: "Authentication"
+description: "Initiate the authentication flow"
+sidebarTitle: "Authentication"
+---
+
+This endpoint allows you to start the authentication process to obtain an API key.
+
+<Note>
+  The response will contain a link to our Telegram bot. You must interact with
+  the bot to complete authentication and receive your API key.
+</Note>
+
+## Authentication Flow
+
+1.  Send a `POST` request to `/auth`.
+2.  Receive a JSON response with an `auth_url`.
+3.  Click the link to open the Telegram bot.
+4.  Click **Start** to verify your session.
+5.  The bot will send you your unique **API Key**.
+
+---
+
+### endpoint: /auth
+
+<ParamField body="none" type="object">
+  No request body is required.
+</ParamField>
+
+<ResponseField name="status" type="string">
+  The status of the request (e.g. "success").
+</ResponseField>
+
+<ResponseField name="message" type="string">
+  Instructions on next steps.
+</ResponseField>
+
+<ResponseField name="data" type="object">
+  Content containing the authentication link.
+  <Expandable title="properties">
+    <ResponseField name="auth_url" type="string">
+      The Telegram link to complete authentication.
+    </ResponseField>
+  </Expandable>
+</ResponseField>
+
+<RequestExample>
+
+```bash curl
+curl -X POST https://webpush-production.up.railway.app/auth
+```
+
+</RequestExample>
+
+<ResponseExample>
+
+```json Response
+{
+  "status": "success",
+  "message": "Please authenticate via Telegram",
+  "data": {
+    "auth_url": "https://t.me/YourBotName?start=723h23..."
+  }
+}
+```
+
+</ResponseExample>
