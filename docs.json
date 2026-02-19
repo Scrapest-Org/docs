@@ -1,6 +1,13 @@
 {
   "$schema": "https://mintlify.com/docs.json",
   "theme": "mint",
+  "api": {
+    "baseUrl": "https://scrapest.duckdns.org",
+    "auth": {
+      "method": "key",
+      "name": "x-api-key"
+    }
+  },
   "name": "Scrapest",
   "colors": {
     "primary": "#16A34A",
@@ -20,6 +27,7 @@
           {
             "group": "API Reference",
             "pages": [
+              "scrapest/api-reference/auth",
               {
                 "group": "Health",
                 "pages": [
@@ -28,7 +36,6 @@
                   "scrapest/api-reference/health/web-poll"
                 ]
               },
-              "scrapest/api-reference/auth",
               {
                 "group": "Webhooks",
                 "pages": [
