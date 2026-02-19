@@ -1,9 +1,9 @@
 ---
 title: "Health Check"
-description: "Check if the Web Push Service is operational"
+description: "Check if the Scrapest Service is operational"
 ---
 
-This endpoint allows you to verify that the Web Push Service is running correctly.
+This endpoint allows you to verify that the Scrapest Service is running correctly.
 
 <ResponseField name="message" type="string">
   A confirmation message that the service is running.
@@ -35,11 +35,11 @@ This endpoint allows you to verify that the Web Push Service is running correctl
 
 <RequestExample>
   ```bash curl
-  curl -X GET https://webpush-production.up.railway.app/
+  curl -X GET http://57.130.19.92:6969/
   ```
 
 ```javascript fetch
-fetch("https://webpush-production.up.railway.app/")
+fetch("http://57.130.19.92:6969/")
   .then((response) => response.json())
   .then((data) => console.log(data));
 ```
@@ -49,7 +49,7 @@ fetch("https://webpush-production.up.railway.app/")
 <ResponseExample>
   ```json Response
   {
-    "message": "Web Push Service is running",
+    "message": "Scrapest Service is running",
     "status": {
       "service_running": true,
       "ws_connected": true,

@@ -1,0 +1,47 @@
+---
+title: "Dispatch"
+description: "Manually dispatch tweets to the internal handler"
+---
+
+## Dispatch Tweets
+
+To manually dispatch tweets to the internal processing logic (webhooks, etc.), send a POST request to the `/internal/dispatch` endpoint. This is an **internal** endpoint and requires the Admin API Key.
+
+<ParamField header="x-admin-api-key" type="string" required>
+  Your Admin API key.
+</ParamField>
+
+### Body Params
+
+<ParamField body="tweet" type="object">
+  A single tweet object to dispatch.
+</ParamField>
+
+<ParamField body="tweets" type="array">
+  An array of resolved tweet objects to dispatch.
+</ParamField>
+
+### Example Request
+
+```bash
+curl -X POST http://57.130.19.92:6969/internal/dispatch \
+  -H "x-admin-api-key: your-admin-key" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "tweets": [
+      {
+        "id": "1234567890",
+        "text": "Manual dispatch",
+        "created_at": "2023-10-27T10:00:00Z"
+      }
+    ]
+  }'
+```
+
+### Response
+
+Returns a success message with the count of dispatched tweets.
+
+```text
+Received 1 tweets
+```

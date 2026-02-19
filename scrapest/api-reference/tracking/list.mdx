@@ -1,6 +1,6 @@
 ---
 title: "List Tracked Users"
-api: "GET https://webpush-production.up.railway.app/tracked-users"
+api: "GET http://57.130.19.92:6969/tracked-users"
 ---
 
 Retrieve a list of all currently tracked users.
@@ -9,12 +9,12 @@ _Note: This endpoint returns the list of users tracked by your API key._
 
 <RequestExample>
   ```bash curl
-  curl -X GET https://webpush-production.up.railway.app/tracked-users \
+  curl -X GET http://57.130.19.92:6969/tracked-users \
   -H "x-api-key: YOUR_API_KEY"
   ```
 
 ```javascript fetch
-fetch("https://webpush-production.up.railway.app/tracked-users", {
+fetch("http://57.130.19.92:6969/tracked-users", {
   method: "GET",
   headers: {
     "x-api-key": "YOUR_API_KEY",

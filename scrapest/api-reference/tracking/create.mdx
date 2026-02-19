@@ -1,6 +1,6 @@
 ---
 title: "Track User"
-api: "POST https://webpush-production.up.railway.app/track-user"
+api: "POST http://57.130.19.92:6969/track-user"
 ---
 
 Start tracking a user. This will automatically follow the user on Twitter and enable push notifications for their account.
@@ -73,14 +73,14 @@ Start tracking a user. This will automatically follow the user on Twitter and en
 
 <RequestExample>
   ```bash curl
-  curl -X POST https://webpush-production.up.railway.app/track-user \
+  curl -X POST http://57.130.19.92:6969/track-user \
     -H "Content-Type: application/json" \
     -H "x-api-key: YOUR_API_KEY" \
     -d '{ "username": "elonmusk" }'
   ```
 
 ```javascript fetch
-fetch("https://webpush-production.up.railway.app/track-user", {
+fetch("http://57.130.19.92:6969/track-user", {
   method: "POST",
   headers: {
     "Content-Type": "application/json",

@@ -1,6 +1,6 @@
 ---
 title: "Authentication"
-api: "POST https://webpush-production.up.railway.app/auth"
+api: "POST http://57.130.19.92:6969/auth"
 description: "Initiate the authentication flow via Telegram"
 sidebarTitle: "Authentication"
 ---
@@ -50,11 +50,11 @@ This endpoint initiates the authentication process. You will receive a link to o
 <RequestExample>
 
 ```bash curl
-curl -X POST https://webpush-production.up.railway.app/auth
+curl -X POST http://57.130.19.92:6969/auth
 ```
 
 ```javascript fetch
-fetch("https://webpush-production.up.railway.app/auth", {
+fetch("http://57.130.19.92:6969/auth", {
   method: "POST",
 })
   .then((response) => response.json())

@@ -1,12 +1,12 @@
-# X Scraper Documentation
+# Scrapest Documentation
 
-Documentation for the X Scraper project, powered by [Mintlify](https://mintlify.com/).
+Documentation for the Scrapest project, powered by [Mintlify](https://mintlify.com/).
 
 ## Overview
 
 This repository contains the documentation for:
 
-- **Web Push Service**: A service to track Twitter/X users and receive real-time updates via push notifications.
+- **Scrapest Service**: A service to track Twitter/X users and receive real-time updates via push notifications.
 
 ## Running Locally
 
@@ -30,5 +30,5 @@ To preview the documentation locally:
 
 Documentation updates are deployed automatically when changes are pushed to the main branch.
 
-- Pages are located in `web-push/`.
+- Pages are located in `scrapest/`.
 - Navigation structure is defined in `docs.json`.

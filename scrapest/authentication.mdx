@@ -1,9 +1,9 @@
 ---
 title: "Authentication"
-description: "Authenticating requests to the Web Push Service"
+description: "Authenticating requests to the Scrapest Service"
 ---
 
-Most endpoints in the Web Push Service are protected and require authentication.
+Most endpoints in the Scrapest Service are protected and require authentication.
 
 ## API Key
 
@@ -21,7 +21,7 @@ To get started, you need to generate an API key via our **Telegram Bot**.
 1.  Call the `/auth` endpoint to initiate the process.
 
 ```bash
-curl -X POST https://webpush-production.up.railway.app/auth
+curl -X POST http://57.130.19.92:6969/auth
 ```
 
 ### Response
@@ -46,9 +46,9 @@ The API will return an authentication link:
 
 ## Live Demo
 
-You can interact with our live Web Push instance at:
+You can interact with our live Scrapest instance at:
 
-`https://webpush-production.up.railway.app/`
+`http://57.130.19.92:6969/`
 
 <Note>
   Authentication is required for all state-changing operations and sensitive
@@ -60,12 +60,12 @@ You can interact with our live Web Push instance at:
 <CodeGroup>
 
 ```bash curl
-curl -X GET https://webpush-production.up.railway.app/health \
+curl -X GET http://57.130.19.92:6969/health \
   -H "x-api-key: your-api-key"
 ```
 
 ```javascript fetch
-fetch("https://webpush-production.up.railway.app/health", {
+fetch("http://57.130.19.92:6969/health", {
   method: "GET",
   headers: {
     "x-api-key": "your-api-key",
@@ -78,7 +78,7 @@ fetch("https://webpush-production.up.railway.app/health", {
 ```python python
 import requests
 
-url = "https://webpush-production.up.railway.app/health"
+url = "http://57.130.19.92:6969/health"
 headers = {
     "x-api-key": "your-api-key"
 }
@@ -97,7 +97,7 @@ import (
 )
 
 func main() {
-	url := "https://webpush-production.up.railway.app/health"
+	url := "http://57.130.19.92:6969/health"
 	method := "GET"
 
 	client := &http.Client{}
@@ -133,7 +133,7 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
     let client = reqwest::Client::new();
 
     let res = client
-        .get("https://webpush-production.up.railway.app/health")
+        .get("http://57.130.19.92:6969/health")
         .header("x-api-key", "your-api-key")
         .send()
         .await?

@@ -1,7 +1,7 @@
 {
   "$schema": "https://mintlify.com/docs.json",
   "theme": "mint",
-  "name": "X Scraper",
+  "name": "Scrapest",
   "colors": {
     "primary": "#16A34A",
     "light": "#07C983",
@@ -11,38 +11,45 @@
   "navigation": {
     "tabs": [
       {
-        "tab": "Web Push",
+        "tab": "Scrapest",
         "groups": [
           {
             "group": "Getting started",
-            "pages": ["web-push/introduction", "web-push/authentication"]
+            "pages": ["scrapest/introduction", "scrapest/authentication"]
           },
           {
             "group": "API Reference",
             "pages": [
-              "web-push/api-reference/health",
-              "web-push/api-reference/auth",
+              "scrapest/api-reference/health",
+              "scrapest/api-reference/auth",
               {
                 "group": "Webhooks",
                 "pages": [
-                  "web-push/api-reference/webhooks/create",
-                  "web-push/api-reference/webhooks/list",
-                  "web-push/api-reference/webhooks/delete"
+                  "scrapest/api-reference/webhooks/create",
+                  "scrapest/api-reference/webhooks/list",
+                  "scrapest/api-reference/webhooks/delete"
                 ]
               },
               {
                 "group": "Tracking",
                 "pages": [
-                  "web-push/api-reference/tracking/create",
-                  "web-push/api-reference/tracking/list",
-                  "web-push/api-reference/tracking/delete"
+                  "scrapest/api-reference/tracking/create",
+                  "scrapest/api-reference/tracking/list",
+                  "scrapest/api-reference/tracking/delete"
                 ]
               },
               {
                 "group": "Private",
                 "pages": [
-                  "web-push/api-reference/private/user",
-                  "web-push/api-reference/private/tweet"
+                  "scrapest/api-reference/private/user",
+                  "scrapest/api-reference/private/tweet"
+                ]
+              },
+              {
+                "group": "Internal",
+                "pages": [
+                  "scrapest/api-reference/internal/backfill",
+                  "scrapest/api-reference/internal/dispatch"
                 ]
               }
             ]

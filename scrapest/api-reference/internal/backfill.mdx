@@ -1,0 +1,56 @@
+---
+title: "Backfill"
+description: "Trigger a backfill for a user"
+---
+
+## Backfill User Tweets
+
+To backfill tweets for a user, send a POST request to the `/internal/backfill` endpoint. This is an **internal** endpoint and requires the Admin API Key.
+
+<ParamField header="x-admin-api-key" type="string" required>
+  Your Admin API key.
+</ParamField>
+
+### Body Params
+
+<ParamField body="uid" type="string">
+  The User ID of the user to backfill. Required if `uname` is not provided.
+</ParamField>
+
+<ParamField body="uname" type="string">
+  The Username of the user to backfill. Required if `uid` is not provided.
+</ParamField>
+
+<ParamField body="cursor" type="string">
+  Pagination cursor for fetching tweets.
+</ParamField>
+
+<ParamField body="limit" type="number" default="50">
+  Number of tweets to fetch.
+</ParamField>
+
+### Example Request
+
+```bash
+curl -X POST http://57.130.19.92:6969/internal/backfill \
+  -H "x-admin-api-key: your-admin-key" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "uname": "elonmusk",
+    "limit": 100
+  }'
+```
+
+### Response
+
+Returns a list of fetched tweets.
+
+```json
+[
+  {
+    "id": "1234567890",
+    "text": "Hello world",
+    ...
+  }
+]
+```

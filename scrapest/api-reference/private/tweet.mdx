@@ -1,6 +1,6 @@
 ---
 title: "Get Tweet Details"
-api: "GET https://webpush-production.up.railway.app/private/tweet"
+api: "GET http://57.130.19.92:6969/private/tweet"
 description: "Fetch detailed information about a specific Tweet"
 sidebarTitle: "Get Tweet"
 ---
@@ -53,20 +53,17 @@ Retrieve full data for a specific Tweet directly from the scraper.
 <RequestExample>
 
 ```bash curl
-curl -X GET "https://webpush-production.up.railway.app/private/tweet?tweetId=2019606922824151397" \
+curl -X GET "http://57.130.19.92:6969/private/tweet?tweetId=2019606922824151397" \
   -H "x-admin-key: YOUR_ADMIN_KEY"
 ```
 
 ```javascript fetch
-fetch(
-  "https://webpush-production.up.railway.app/private/tweet?tweetId=2019606922824151397",
-  {
-    method: "GET",
-    headers: {
-      "x-admin-key": "YOUR_ADMIN_KEY",
-    },
+fetch("http://57.130.19.92:6969/private/tweet?tweetId=2019606922824151397", {
+  method: "GET",
+  headers: {
+    "x-admin-key": "YOUR_ADMIN_KEY",
   },
-)
+})
   .then((response) => response.json())
   .then((data) => console.log(data));
 ```

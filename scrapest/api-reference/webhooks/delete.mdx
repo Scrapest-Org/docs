@@ -1,18 +1,18 @@
 ---
 title: "Delete Webhook"
-api: "DELETE https://webpush-production.up.railway.app/webhook"
+api: "DELETE http://57.130.19.92:6969/webhook"
 ---
 
 Remove the webhook registered to your API key.
 
 <RequestExample>
   ```bash curl
-  curl -X DELETE https://webpush-production.up.railway.app/webhook \
+  curl -X DELETE http://57.130.19.92:6969/webhook \
     -H "x-api-key: YOUR_API_KEY"
   ```
 
 ```javascript fetch
-fetch("https://webpush-production.up.railway.app/webhook", {
+fetch("http://57.130.19.92:6969/webhook", {
   method: "DELETE",
   headers: {
     "x-api-key": "YOUR_API_KEY",

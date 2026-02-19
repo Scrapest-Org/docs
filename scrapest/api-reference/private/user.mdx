@@ -1,6 +1,6 @@
 ---
 title: "Get User Details"
-api: "GET https://webpush-production.up.railway.app/private/user"
+api: "GET http://57.130.19.92:6969/private/user"
 description: "Fetch detailed information about a Twitter user"
 sidebarTitle: "Get User"
 ---
@@ -59,20 +59,17 @@ Retrieve full profile information for a specific Twitter user directly from the 
 <RequestExample>
 
 ```bash curl
-curl -X GET "https://webpush-production.up.railway.app/private/user?username=elonmusk" \
+curl -X GET "http://57.130.19.92:6969/private/user?username=elonmusk" \
   -H "x-admin-key: YOUR_ADMIN_KEY"
 ```
 
 ```javascript fetch
-fetch(
-  "https://webpush-production.up.railway.app/private/user?username=elonmusk",
-  {
-    method: "GET",
-    headers: {
-      "x-admin-key": "YOUR_ADMIN_KEY",
-    },
+fetch("http://57.130.19.92:6969/private/user?username=elonmusk", {
+  method: "GET",
+  headers: {
+    "x-admin-key": "YOUR_ADMIN_KEY",
   },
-)
+})
   .then((response) => response.json())
   .then((data) => console.log(data));
 ```
