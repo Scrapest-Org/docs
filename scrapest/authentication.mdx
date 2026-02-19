@@ -21,7 +21,7 @@ To get started, you need to generate an API key via our **Telegram Bot**.
 1.  Call the `/auth` endpoint to initiate the process.
 
 ```bash
-curl -X POST http://57.130.19.92:6969/auth
+curl -X POST https://scrapest.duckdns.org/auth
 ```
 
 ### Response
@@ -48,7 +48,7 @@ The API will return an authentication link:
 
 You can interact with our live Scrapest instance at:
 
-`http://57.130.19.92:6969/`
+`https://scrapest.duckdns.org/`
 
 <Note>
   Authentication is required for all state-changing operations and sensitive
@@ -60,12 +60,12 @@ You can interact with our live Scrapest instance at:
 <CodeGroup>
 
 ```bash curl
-curl -X GET http://57.130.19.92:6969/health \
+curl -X GET https://scrapest.duckdns.org/health \
   -H "x-api-key: your-api-key"
 ```
 
 ```javascript fetch
-fetch("http://57.130.19.92:6969/health", {
+fetch("https://scrapest.duckdns.org/health", {
   method: "GET",
   headers: {
     "x-api-key": "your-api-key",
@@ -78,7 +78,7 @@ fetch("http://57.130.19.92:6969/health", {
 ```python python
 import requests
 
-url = "http://57.130.19.92:6969/health"
+url = "https://scrapest.duckdns.org/health"
 headers = {
     "x-api-key": "your-api-key"
 }
@@ -97,7 +97,7 @@ import (
 )
 
 func main() {
-	url := "http://57.130.19.92:6969/health"
+	url := "https://scrapest.duckdns.org/health"
 	method := "GET"
 
 	client := &http.Client{}
@@ -133,7 +133,7 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
     let client = reqwest::Client::new();
 
     let res = client
-        .get("http://57.130.19.92:6969/health")
+        .get("https://scrapest.duckdns.org/health")
         .header("x-api-key", "your-api-key")
         .send()
         .await?

@@ -1,6 +1,6 @@
 ---
 title: "Authentication"
-api: "POST http://57.130.19.92:6969/auth"
+api: "POST https://scrapest.duckdns.org/auth"
 description: "Initiate the authentication flow via Telegram"
 sidebarTitle: "Authentication"
 ---
@@ -50,11 +50,11 @@ This endpoint initiates the authentication process. You will receive a link to o
 <RequestExample>
 
 ```bash curl
-curl -X POST http://57.130.19.92:6969/auth
+curl -X POST https://scrapest.duckdns.org/auth
 ```
 
 ```javascript fetch
-fetch("http://57.130.19.92:6969/auth", {
+fetch("https://scrapest.duckdns.org/auth", {
   method: "POST",
 })
   .then((response) => response.json())

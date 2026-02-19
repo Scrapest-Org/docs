@@ -1,18 +1,18 @@
 ---
 title: "Delete Webhook"
-api: "DELETE http://57.130.19.92:6969/webhook"
+api: "DELETE https://scrapest.duckdns.org/webhook"
 ---
 
 Remove the webhook registered to your API key.
 
 <RequestExample>
   ```bash curl
-  curl -X DELETE http://57.130.19.92:6969/webhook \
+  curl -X DELETE https://scrapest.duckdns.org/webhook \
     -H "x-api-key: YOUR_API_KEY"
   ```
 
 ```javascript fetch
-fetch("http://57.130.19.92:6969/webhook", {
+fetch("https://scrapest.duckdns.org/webhook", {
   method: "DELETE",
   headers: {
     "x-api-key": "YOUR_API_KEY",

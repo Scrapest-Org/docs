@@ -1,6 +1,6 @@
 ---
 title: "Untrack User"
-api: "DELETE http://57.130.19.92:6969/track-user"
+api: "DELETE https://scrapest.duckdns.org/track-user"
 ---
 
 Stop tracking a user.
@@ -17,14 +17,14 @@ Stop tracking a user.
 
 <RequestExample>
   ```bash curl
-  curl -X DELETE http://57.130.19.92:6969/track-user \
+  curl -X DELETE https://scrapest.duckdns.org/track-user \
     -H "Content-Type: application/json" \
     -H "x-api-key: YOUR_API_KEY" \
     -d '{ "username": "elonmusk" }'
   ```
 
 ```javascript fetch
-fetch("http://57.130.19.92:6969/track-user", {
+fetch("https://scrapest.duckdns.org/track-user", {
   method: "DELETE",
   headers: {
     "Content-Type": "application/json",

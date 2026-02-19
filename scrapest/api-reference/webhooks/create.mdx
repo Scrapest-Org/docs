@@ -1,6 +1,6 @@
 ---
 title: "Register Webhook"
-api: "POST http://57.130.19.92:6969/webhook"
+api: "POST https://scrapest.duckdns.org/webhook"
 ---
 
 Register a new webhook URL to receive tweet notifications.
@@ -60,14 +60,14 @@ Register a new webhook URL to receive tweet notifications.
 
 <RequestExample>
   ```bash curl
-  curl -X POST http://57.130.19.92:6969/webhook \
+  curl -X POST https://scrapest.duckdns.org/webhook \
     -H "Content-Type: application/json" \
     -H "x-api-key: YOUR_API_KEY" \
     -d '{ "url": "https://your-webhook.com/endpoint" }'
   ```
 
 ```javascript fetch
-fetch("http://57.130.19.92:6969/webhook", {
+fetch("https://scrapest.duckdns.org/webhook", {
   method: "POST",
   headers: {
     "Content-Type": "application/json",

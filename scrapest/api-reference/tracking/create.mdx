@@ -1,6 +1,6 @@
 ---
 title: "Track User"
-api: "POST http://57.130.19.92:6969/track-user"
+api: "POST https://scrapest.duckdns.org/track-user"
 ---
 
 Start tracking a user. This will automatically follow the user on Twitter and enable push notifications for their account.
@@ -73,14 +73,14 @@ Start tracking a user. This will automatically follow the user on Twitter and en
 
 <RequestExample>
   ```bash curl
-  curl -X POST http://57.130.19.92:6969/track-user \
+  curl -X POST https://scrapest.duckdns.org/track-user \
     -H "Content-Type: application/json" \
     -H "x-api-key: YOUR_API_KEY" \
     -d '{ "username": "elonmusk" }'
   ```
 
 ```javascript fetch
-fetch("http://57.130.19.92:6969/track-user", {
+fetch("https://scrapest.duckdns.org/track-user", {
   method: "POST",
   headers: {
     "Content-Type": "application/json",

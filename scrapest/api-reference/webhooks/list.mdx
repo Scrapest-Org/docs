@@ -1,6 +1,6 @@
 ---
 title: "Get Webhook"
-api: "GET http://57.130.19.92:6969/webhook"
+api: "GET https://scrapest.duckdns.org/webhook"
 ---
 
 Retrieve the registered webhook for your API key.
@@ -11,12 +11,12 @@ Retrieve the registered webhook for your API key.
 
 <RequestExample>
   ```bash curl
-  curl -X GET http://57.130.19.92:6969/webhook \
+  curl -X GET https://scrapest.duckdns.org/webhook \
   -H "x-api-key: YOUR_API_KEY"
   ```
 
 ```javascript fetch
-fetch("http://57.130.19.92:6969/webhook", {
+fetch("https://scrapest.duckdns.org/webhook", {
   method: "GET",
   headers: {
     "x-api-key": "YOUR_API_KEY",

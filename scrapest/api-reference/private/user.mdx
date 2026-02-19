@@ -1,6 +1,6 @@
 ---
 title: "Get User Details"
-api: "GET http://57.130.19.92:6969/private/user"
+api: "GET https://scrapest.duckdns.org/private/user"
 description: "Fetch detailed information about a Twitter user"
 sidebarTitle: "Get User"
 ---
@@ -59,12 +59,12 @@ Retrieve full profile information for a specific Twitter user directly from the 
 <RequestExample>
 
 ```bash curl
-curl -X GET "http://57.130.19.92:6969/private/user?username=elonmusk" \
+curl -X GET "https://scrapest.duckdns.org/private/user?username=elonmusk" \
   -H "x-admin-key: YOUR_ADMIN_KEY"
 ```
 
 ```javascript fetch
-fetch("http://57.130.19.92:6969/private/user?username=elonmusk", {
+fetch("https://scrapest.duckdns.org/private/user?username=elonmusk", {
   method: "GET",
   headers: {
     "x-admin-key": "YOUR_ADMIN_KEY",
