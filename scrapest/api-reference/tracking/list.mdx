@@ -7,6 +7,10 @@ Retrieve a list of all currently tracked users.
 
 _Note: This endpoint returns the list of users tracked by your API key._
 
+<ParamField header="x-api-key" type="string" required>
+  Your unique API key.
+</ParamField>
+
 <RequestExample>
   ```bash curl
   curl -X GET https://scrapest.duckdns.org/tracked-users \

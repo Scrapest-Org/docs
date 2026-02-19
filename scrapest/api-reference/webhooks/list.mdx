@@ -5,6 +5,10 @@ api: "GET https://scrapest.duckdns.org/webhook"
 
 Retrieve the registered webhook for your API key.
 
+<ParamField header="x-api-key" type="string" required>
+  Your unique API key.
+</ParamField>
+
 <ResponseField name="data" type="string">
   The registered webhook URL, or null if none is registered.
 </ResponseField>

@@ -13,12 +13,8 @@ To backfill tweets for a user, send a POST request to the `/internal/backfill` e
 
 ### Body Params
 
-<ParamField body="uid" type="string">
-  The User ID of the user to backfill. Required if `uname` is not provided.
-</ParamField>
-
-<ParamField body="uname" type="string">
-  The Username of the user to backfill. Required if `uid` is not provided.
+<ParamField body="xuid" type="string" required>
+  The Twitter User ID (REST ID) of the user to backfill.
 </ParamField>
 
 <ParamField body="cursor" type="string">
@@ -36,7 +32,7 @@ curl -X POST https://scrapest.duckdns.org/internal/backfill \
   -H "x-admin-api-key: your-admin-key" \
   -H "Content-Type: application/json" \
   -d '{
-    "uname": "elonmusk",
+    "xuid": "44196397",
     "limit": 100
   }'
 ```

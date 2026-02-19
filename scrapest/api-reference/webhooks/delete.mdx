@@ -5,6 +5,10 @@ api: "DELETE https://scrapest.duckdns.org/webhook"
 
 Remove the webhook registered to your API key.
 
+<ParamField header="x-api-key" type="string" required>
+  Your unique API key.
+</ParamField>
+
 <RequestExample>
   ```bash curl
   curl -X DELETE https://scrapest.duckdns.org/webhook \
