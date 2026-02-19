@@ -20,7 +20,14 @@
           {
             "group": "API Reference",
             "pages": [
-              "scrapest/api-reference/health",
+              {
+                "group": "Health",
+                "pages": [
+                  "scrapest/api-reference/health/general",
+                  "scrapest/api-reference/health/web-push",
+                  "scrapest/api-reference/health/web-poll"
+                ]
+              },
               "scrapest/api-reference/auth",
               {
                 "group": "Webhooks",

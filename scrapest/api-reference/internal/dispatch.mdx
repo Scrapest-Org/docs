@@ -8,7 +8,7 @@ description: "Manually dispatch tweets to the internal handler"
 
 To manually dispatch tweets to the internal processing logic (webhooks, etc.), send a POST request to the `/internal/dispatch` endpoint. This is an **internal** endpoint and requires the Admin API Key.
 
-<ParamField header="x-admin-api-key" type="string" required>
+<ParamField header="x-admin-key" type="string" required>
   Your Admin API key.
 </ParamField>
 
@@ -26,7 +26,7 @@ To manually dispatch tweets to the internal processing logic (webhooks, etc.), s
 
 ```bash
 curl -X POST https://scrapest.duckdns.org/internal/dispatch \
-  -H "x-admin-api-key: your-admin-key" \
+  -H "x-admin-key: your-admin-key" \
   -H "Content-Type: application/json" \
   -d '{
     "tweets": [

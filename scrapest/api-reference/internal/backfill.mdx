@@ -8,7 +8,7 @@ description: "Trigger a backfill for a user"
 
 To backfill tweets for a user, send a POST request to the `/internal/backfill` endpoint. This is an **internal** endpoint and requires the Admin API Key.
 
-<ParamField header="x-admin-api-key" type="string" required>
+<ParamField header="x-admin-key" type="string" required>
   Your Admin API key.
 </ParamField>
 
@@ -30,7 +30,7 @@ To backfill tweets for a user, send a POST request to the `/internal/backfill` e
 
 ```bash
 curl -X POST https://scrapest.duckdns.org/internal/backfill \
-  -H "x-admin-api-key: your-admin-key" \
+  -H "x-admin-key: your-admin-key" \
   -H "Content-Type: application/json" \
   -d '{
     "xuid": "44196397",

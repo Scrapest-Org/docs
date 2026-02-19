@@ -1,0 +1,44 @@
+---
+title: "Web Push Health"
+api: "GET https://scrapest.duckdns.org/health/web-push"
+description: "Check the health of the Web Push service"
+---
+
+This endpoint returns the specific health status of the Web Push service.
+
+<ResponseField name="status" type="string">
+  Current operational status (e.g., "ok").
+</ResponseField>
+
+<ResponseField name="last_checkin" type="string">
+  Timestamp of the last check-in.
+</ResponseField>
+
+<ResponseField name="next_checkin" type="string">
+  Timestamp of the next expected check-in.
+</ResponseField>
+
+<ResponseField name="is_registered" type="boolean">
+  Indicates if the service is registered.
+</ResponseField>
+
+<ResponseField name="ws_connected" type="boolean">
+  Status of the WebSocket connection.
+</ResponseField>
+
+<ResponseField name="twitter_authenticated" type="boolean">
+  Status of Twitter authentication.
+</ResponseField>
+
+<RequestExample>
+  ```bash curl
+  curl -X GET https://scrapest.duckdns.org/health/web-push
+  ```
+
+```javascript fetch
+fetch("https://scrapest.duckdns.org/health/web-push")
+  .then((response) => response.json())
+  .then((data) => console.log(data));
+```
+
+</RequestExample>

@@ -1,0 +1,98 @@
+---
+title: "General Health"
+api: "GET https://scrapest.duckdns.org/health"
+description: "Check the overall health of the Scrapest Service"
+---
+
+This endpoint provides an aggregated view of the health status for all system components, including Web Push, Web Poll, and the Telegram Bot.
+
+<ResponseField name="webpush" type="object">
+  Health status of the Web Push service.
+  <Expandable title="properties">
+    <ResponseField name="status" type="string">
+      Current operational status (e.g., "ok").
+    </ResponseField>
+    <ResponseField name="last_checkin" type="string">
+      Timestamp of the last check-in.
+    </ResponseField>
+    <ResponseField name="next_checkin" type="string">
+      Timestamp of the next expected check-in.
+    </ResponseField>
+    <ResponseField name="is_registered" type="boolean">
+      Indicates if the service is registered.
+    </ResponseField>
+    <ResponseField name="ws_connected" type="boolean">
+      Status of the WebSocket connection.
+    </ResponseField>
+    <ResponseField name="twitter_authenticated" type="boolean">
+      Status of Twitter authentication.
+    </ResponseField>
+  </Expandable>
+</ResponseField>
+
+<ResponseField name="webpoll" type="object">
+  Health status of the Web Poll service.
+  <Expandable title="properties">
+    <ResponseField name="status" type="string">
+      Current operational status.
+    </ResponseField>
+    <ResponseField name="last_checkin" type="string">
+      Timestamp of the last check-in.
+    </ResponseField>
+    <ResponseField name="next_checkin" type="string">
+      Timestamp of the next expected check-in.
+    </ResponseField>
+    <ResponseField name="is_registered" type="boolean">
+      Indicates if the service is registered.
+    </ResponseField>
+    <ResponseField name="ws_connected" type="boolean">
+      Status of the WebSocket connection.
+    </ResponseField>
+    <ResponseField name="twitter_authenticated" type="boolean">
+      Status of Twitter authentication.
+    </ResponseField>
+  </Expandable>
+</ResponseField>
+
+<ResponseField name="telegram_bot" type="object">
+  Health status of the Telegram Bot.
+  <Expandable title="properties">
+    <ResponseField name="url" type="string">
+      The webhook URL used by the bot.
+    </ResponseField>
+    <ResponseField name="has_custom_certificate" type="boolean">
+      Whether a custom certificate is used.
+    </ResponseField>
+    <ResponseField name="pending_update_count" type="number">
+      Number of pending updates.
+    </ResponseField>
+    <ResponseField name="ip_address" type="string">
+      IP address of the bot server.
+    </ResponseField>
+    <ResponseField name="last_error_date" type="number">
+      Timestamp of the last error.
+    </ResponseField>
+    <ResponseField name="last_error_message" type="string">
+      Message of the last error.
+    </ResponseField>
+    <ResponseField name="last_synchronization_error_date" type="number">
+      Timestamp of the last synchronization error.
+    </ResponseField>
+    <ResponseField name="max_connections" type="number">
+      Maximum allowed connections.
+    </ResponseField>
+  </Expandable>
+</ResponseField>
+
+<RequestExample>
+  ```bash curl
+  curl -X GET https://scrapest.duckdns.org/health
+  ```
+
+```javascript fetch
+fetch("https://scrapest.duckdns.org/health")
+  .then((response) => response.json())
+  .then((data) => console.log(data));
+```
+
+</RequestExample>
