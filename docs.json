@@ -23,6 +23,7 @@
             "openapi": "openapi.json",
             "pages": [
               "scrapest/api-reference/auth",
+              "scrapest/api-reference/websocket",
               {
                 "group": "Health",
                 "pages": [
